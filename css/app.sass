@@ -1,0 +1,327 @@
+/* Variables */
+$default-link-color: #FFFFFF
+$default-link-hover-color: #FFFFFF
+
+/* Basic Settings */
+
+html, body
+  margin: 0
+  padding: 0
+  height: 100%
+  width: 100%
+
+*
+  margin: 0
+  padding: 0
+
+::selection
+  background: none
+
+a
+  text-decoration: none
+  color: $default-link-color
+  &:hover, &:selected, &:focus
+    color: $default-link-hover-color
+
+.clear
+  clear: both
+
+.btn
+  background:
+    color: rgb(33,150,243)
+    image: none
+  border-color: #FFFFFF
+  border-radius: 30px
+  border: 0px #FFFFFF none
+  box-shadow: rgba(0,0,0,0) 0px 0px 20px 0px
+  box-sizing: border-box
+  color: #FFFFFF
+  cursor: pointer
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-size: 10px
+  display: inline-block
+  letter-spacing: 2px
+  padding: 14px 36px
+  text-align: center
+  text-decoration: none
+  text-transform: uppercase
+  transition-delay: 0s
+  transition-duration: 0.4s
+  transition-property: all
+  transition-timing-function: ease
+  vertical-align: center
+  white-space: nowrap
+  tap-highlight-color: rgba(0,0,0,0)
+  margin: 5px 5px 5px 0
+
+.btn-secondary
+  background-color: #f50057
+
+/* Functions */
+=cgs($rgb)
+  color: rgb($rgb, $rgb, $rgb)
+=bgs($rgb)
+  background-color: rgb($rgb, $rgb, $rgb)
+
+/* Project Based Settings */
+
+body
+  background:
+    image: url('../images/bg.jpg')
+    size: cover
+    attachment: fixed
+
+.menuicon
+  cursor: pointer
+  color: #ffffff
+  transition: left 1s ease
+  position: fixed
+  top: 10px
+  left: 10px
+  z-index: 5
+  svg
+    width: 30px
+    height: 30px
+    fill: currentColor
+
+.black
+  +cgs(90)
+
+.navmove
+  left: 0px
+
+.menumove
+  left: 210px
+
+nav
+  position: fixed
+  z-index: 5
+  top: 0
+  left: -200px
+  width: 200px
+  background: #2196f3
+  height: 100%
+  transition: left 1s ease
+  // overflow-y: scroll
+  ul
+    li
+      font-family: 'Roboto', sans-serif
+      letter-spacing: 1pt
+      text-align: center
+      height: 70px
+      display: flex
+      align-items: center
+      justify-content: center
+
+.container
+  width: 85%
+  margin: 0 auto
+
+.section
+  width: 100%
+  height: 100%
+
+.normal-section
+  width: 100%
+  background: #FFFFFF
+  padding: 75px 0
+
+header
+  display: flex
+  align-items: center
+  .container
+    height: fit-content
+    h2
+      font-family: 'Montserrat', sans-serif
+      font-weight: 400
+      letter-spacing: 7pt
+      font-size: 22pt
+      color: #FFFFFF
+    p
+      padding: 1em 0
+      letter-spacing: 2pt
+      font-weight: 200
+      font-family: 'Roboto', sans-serif
+      color: #FFFFFF
+#about
+  @extend .normal-section
+  .wrapper
+    .picture
+      width: 100%
+      text-align: center
+      float: none
+      @media screen and (min-width: 560px)
+        width: 25%
+        float: left
+      img
+        width: 100%
+        max-width: 360px
+        border-radius: 50%
+    .text
+      width: 100%
+      text-align: center
+      @media screen and (min-width: 560px)
+        width: 70%
+        margin-left: 5%
+        text-align: left
+        float: left
+      h2
+        +cgs(60)
+        font-family: 'Montserrat', sans-serif
+        letter-spacing: 2pt
+        font-size: 13pt
+        font-weight: 300
+        padding: 10px 0
+      p
+        +cgs(120)
+        font-family: 'Roboto', sans-serif
+        letter-spacing: 1pt
+        font-weight: 300
+        font-size: 12pt
+        padding: 5px 0
+
+#services
+  @extend .normal-section
+  .wrapper
+    .service
+      width: 100%
+      float: none
+      margin: 10px 0
+      @media screen and (max-width: 900px)
+        *
+          text-align: center
+      @media screen and (min-width: 900px)
+        width: 30%
+        margin: 0 5% 0 0
+        float: left
+        *
+          text-align: left
+      .design
+        color: #E67E22
+        font-size: 28pt
+      .development
+        color: #2980B9
+        font-size: 28pt
+      .video-edit
+        color: #27AE60
+        font-size: 28pt
+      h2
+        font-family: 'Montserrat', sans-serif
+        font-size: 12pt
+        +cgs(65)
+        font-weight: 400
+        letter-spacing: 1pt
+        padding: 10px 0 20px 0
+      p
+        font-family: 'Roboto', sans-serif
+        font-size: 10pt
+        +cgs(120)
+        font-weight: 300
+        letter-spacing: 0.75pt
+    .last-child
+      margin-right: 0
+
+
+#portfolio
+  @extend .normal-section
+  h2.title
+    font-family: 'Montserrat', sans-serif
+    font-size: 10pt
+    text-transform: uppercase
+    +cgs(20)
+    letter-spacing: 5pt
+    font-weight: bold
+  .wrapper
+    padding: 25px 0 0 0
+    width: 100%
+    .item
+      box-sizing: border-box;
+      position: relative
+      overflow: hidden
+      width: 100%
+      float: none
+      margin: 20px 0
+      cursor: pointer
+      *
+        box-sizing: border-box;
+      @media screen and (min-width: 720px)
+        width: 30%
+        margin: 20px 5% 20px 0
+        float: left
+      img
+        max-width: 100%
+        transition: all 0.5s
+      &:hover img
+        transform: scale(1.1)
+
+    .item:nth-child(3n)
+      @media screen and (min-width: 720px)
+        margin-right: 0
+
+#clients
+  @extend .normal-section
+  h2.title
+    font-family: 'Montserrat', sans-serif
+    font-size: 10pt
+    text-transform: uppercase
+    +cgs(20)
+    letter-spacing: 5pt
+    font-weight: bold
+  .wrapper
+    padding: 25px 0 0 0
+    width: 100%
+    .client
+      float: left
+      width: 23%
+      margin: 10px 2.66% 10px 0
+      min-width: 200px
+      img
+        width: 100%
+    .client:nth-child(4n)
+      @media screen and (min-width: 1024px)
+        margin-right: 0
+
+#contact
+  width: 100%
+  height: 80%
+  display: flex
+  align-items: center
+  justify-content: cente
+  min-height: 450px
+  *
+    text-align: center
+  h2
+    font-family: 'Montserrat', sans-serif
+    font-weight: 400
+    letter-spacing: 7pt
+    font-size: 22pt
+    color: #FFFFFF
+    text-transform: uppercase
+  p
+    padding: 1em 0
+    letter-spacing: 2pt
+    font-weight: 200
+    font-family: 'Roboto', sans-serif
+    color: #FFFFFF
+#social
+  width: 100%
+  height: 100px
+  background: #f50057
+  color: #FFFFFF
+  display: flex
+  align-items: center
+  justify-content: space-evenly
+  span
+    cursor: pointer
+    i
+      font-size: 26px
+
+footer
+  @extend .normal-section
+  p
+    width: 100%
+    text-align: center
+    font-family: 'Roboto', sans-serif
+    font-size: 12pt
+    letter-spacing: 1.5pt
+    +cgs(90)
